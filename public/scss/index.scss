@@ -10,12 +10,16 @@ main {
         border-radius: 1rem;
         justify-content: space-between;
 
-        @media only screen and (min-width: 1366px) {
-            height: calc(100vh - 4rem);
-        }
+        // @media only screen and (min-width: 1366px) {
+        //     height: calc(100vh - 4rem);
+        // }
 
         section {
             width: 35%;
+
+            canvas {
+                max-height: 280px;
+            }
 
             #barChart {
                 margin-bottom: 3rem;

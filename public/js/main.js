@@ -1,4 +1,4 @@
-const data = await fetch('https://api.npoint.io/23f47eae1b1cf839cbe9').then(r => r.json()),
+const data = await fetch('./base.json').then(r => r.json()),
     cidades = await data.cidades,
     barCharts = await data.barCharts,
     lineCharts = await data.lineCharts,

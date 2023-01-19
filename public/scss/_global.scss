@@ -15,10 +15,10 @@ body {
     font-family: $inter;
     background: #eee;
 
-    @media only screen and (min-width: 1366px) {
-        max-height: 100vh;
-        overflow-y: hidden;
-    }
+    // @media only screen and (min-width: 1366px) {
+    //     max-height: 100vh;
+    //     overflow-y: hidden;
+    // }
 }
 
 button {
