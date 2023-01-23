@@ -3,13 +3,32 @@ const dados = await fetch('./dados.json').then(r => r.json());
 const ChartAlunos = document.getElementById('ChartOne'),
     ChartNotas = document.getElementById('ChartTwo');
 
+function sumUpStudents(item) {
+    let veteranos = item.veteranos[0].qtd + item.veteranos[1].qtd,
+        calouros = item.calouros[0].qtd + item.calouros[1].qtd;
+
+    return [veteranos, calouros];
+}
+
+function getHighestGrades(item) {
+    let notas = [
+        ...item.veteranos[0].cinco_maiores_notas,
+        ...item.veteranos[1].cinco_maiores_notas,
+        ...item.calouros[0].cinco_maiores_notas,
+        ...item.calouros[1].cinco_maiores_notas,
+    ].slice(0, 5);
+
+    return notas;
+}
+
+//graficos iniciais
 let chartOne = new Chart(ChartAlunos, {
     type: 'pie',
     data: {
         labels: ['Veteranos', 'Calouros'],
         datasets: [{
             label: 'Quantidade de alunos',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [sumUpStudents(dados[0])[0], sumUpStudents(dados[0])[1]],
         }]
     },
 });
@@ -20,7 +39,7 @@ let chartTwo = new Chart(ChartNotas, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
         datasets: [{
             label: 'Maior nota dos 5 primeiros meses',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [...getHighestGrades(dados[0])],
         }]
     },
 });
@@ -28,6 +47,31 @@ let chartTwo = new Chart(ChartNotas, {
 function createChart(item) {
     chartOne.destroy();
     chartTwo.destroy();
+
+    let chartOneLabel = ['Veteranos', 'Calouros'],
+        chartTwoLabel = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
+
+    chartOne = new Chart(ChartAlunos, {
+        type: 'pie',
+        data: {
+            labels: chartOneLabel,
+            datasets: [{
+                label: 'Quantidade de alunos',
+                data: [sumUpStudents(item)[0], sumUpStudents(item)[1]],
+            }],
+        },
+    });
+
+    chartTwo = new Chart(ChartNotas, {
+        type: 'bar',
+        data: {
+            labels: chartTwoLabel,
+            datasets: [{
+                label: 'Maior nota dos 5 primeiros meses',
+                data: [...getHighestGrades(item)],
+            }]
+        }
+    });
 }
 
 let popupContent;
