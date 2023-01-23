@@ -48,6 +48,8 @@ function createChart(item) {
     chartOne.destroy();
     chartTwo.destroy();
 
+    document.getElementById('title').innerText = item.cidade.nome;
+
     let chartOneLabel = ['Veteranos', 'Calouros'],
         chartTwoLabel = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 
@@ -101,5 +103,5 @@ map.on('popupopen', function (e) {
 
     let item = dados.find(item => item.cidade.nome === anchor);
 
-    createChart(item)
+    createChart(item);
 });
