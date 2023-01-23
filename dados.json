@@ -1,0 +1,72 @@
+ [
+    {
+        "cidade": {
+            "nome": "Serra",
+            "lat": -20.128889,
+            "lon": -40.307778
+        },
+        "veteranos": [
+            {
+                "ano": 2022,
+                "qtd": 300,
+                "media_notas_turma": 8.7,
+                "cinco_maiores_notas": [9, 9.7, 9.8, 10, 9.9]
+            },
+            {
+                "ano": 2021,
+                "qtd": 227,
+                "media_notas_turma": 8.4,
+                "cinco_maiores_notas": [9, 9.2, 9.5, 10, 9.4]
+            }
+        ],
+        "calouros": [
+            {
+                "ano": 2022,
+                "qtd": 520,
+                "media_notas_turma": 7.7,
+                "cinco_maiores_notas": [8.29, 8.86, 8.82, 8.29, 9.33]
+            },
+            {
+                "ano": 2021,
+                "qtd": 644,
+                "media_notas_turma": 9.5,
+                "cinco_maiores_notas": [9.51, 8.14, 9.6, 9.75, 9.72]
+            }
+        ]
+    },
+    {
+        "cidade": {
+            "nome": "Guarapari",
+            "lat": -20.657778,
+            "lon": -40.510833
+        },
+        "veteranos": [
+            {
+                "ano": 2022,
+                "qtd": 289,
+                "media_notas_turma": 9.6,
+                "cinco_maiores_notas": [9.1, 8.54, 8.19, 8.7, 8.41]
+            },
+            {
+                "ano": 2021,
+                "qtd": 124,
+                "media_notas_turma": 8.1,
+                "cinco_maiores_notas": [9.3, 8.21, 8.13, 9.5, 9.27]
+            }
+        ],
+        "calouros": [
+            {
+                "ano": 2022,
+                "qtd": 444,
+                "media_notas_turma": 8.65,
+                "cinco_maiores_notas": [8.63, 9.36, 8.94, 8.78, 9.71]
+            },
+            {
+                "ano": 2021,
+                "qtd": 501,
+                "media_notas_turma": 9.2,
+                "cinco_maiores_notas": [8.97, 9.69, 8.22, 9.78, 8.05]
+            }
+        ]
+    }
+ ]

@@ -10,12 +10,12 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
-  integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
-  integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
 
-<!-- LEAFLET MARKER CLUSTER -->
-<script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
+  <!-- LEAFLET MARKER CLUSTER -->
+  <script src="https://unpkg.com/leaflet.markercluster@1.3.0/dist/leaflet.markercluster.js"></script>
 
 </head>
 
@@ -23,10 +23,26 @@
 
   <main>
     <div class="container">
-      <section class="charts">
-        <canvas id="barChart"></canvas>
+      <section class="data">
+        <div class="filter">
+          <select name="ano" id="ano">
+            <option value="todos">Todos os Anos</option>
+            <option value="2022">2022</option>
+            <option value="2021">2021</option>
+          </select>
 
-        <canvas id="lineChart"></canvas>
+          <select name="alunos" id="alunos">
+            <option value="todos">Todos os Alunos</option>
+            <option value="veterano">Veteranos</option>
+            <option value="calouro">Calouros</option>
+          </select>
+        </div>
+
+        <div class="chart">
+          <canvas id="ChartOne"></canvas>
+
+          <canvas id="ChartTwo"></canvas>
+        </div>
       </section>
 
       <section>
@@ -35,7 +51,8 @@
     </div>
   </main>
 
-<script type="module" src="public/js/main.js"></script>
+  <!-- <script type="module" src="public/js/main.js"></script> -->
+  <script type="module" src="public/js/script.js"></script>
 
 </body>
 
