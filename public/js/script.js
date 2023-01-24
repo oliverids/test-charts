@@ -21,7 +21,6 @@ function getHighestGrades(item) {
     return notas;
 }
 
-//graficos iniciais
 let chartOne = new Chart(ChartAlunos, {
     type: 'pie',
     data: {
@@ -38,13 +37,13 @@ let chartTwo = new Chart(ChartNotas, {
     data: {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
         datasets: [{
-            label: 'Maior nota dos 5 primeiros meses',
+            label: 'Maiores notas dos 5 primeiros meses',
             data: [...getHighestGrades(dados[0])],
         }]
     },
 });
 
-function createChart(item) {
+function createChart(item, ano) {
     chartOne.destroy();
     chartTwo.destroy();
 
@@ -53,13 +52,34 @@ function createChart(item) {
     let chartOneLabel = ['Veteranos', 'Calouros'],
         chartTwoLabel = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
 
+    let ChartOneData, ChartTwoData;
+
+    switch (ano) {
+        case 'todos':
+            ChartOneData = [sumUpStudents(item)[0], sumUpStudents(item)[1]];
+            ChartTwoData = [sumUpStudents(item)[0], sumUpStudents(item)[1]];
+            break;
+
+        case '2022':
+            break;
+
+        case '2021':
+            break;
+        default:
+            break;
+    }
+
+    if (ano == 'todos') {
+
+    } else { }
+
     chartOne = new Chart(ChartAlunos, {
         type: 'pie',
         data: {
             labels: chartOneLabel,
             datasets: [{
                 label: 'Quantidade de alunos',
-                data: [sumUpStudents(item)[0], sumUpStudents(item)[1]],
+                data: ChartOneData,
             }],
         },
     });
@@ -70,11 +90,12 @@ function createChart(item) {
             labels: chartTwoLabel,
             datasets: [{
                 label: 'Maior nota dos 5 primeiros meses',
-                data: [...getHighestGrades(item)],
+                data: ChartTwoData,
             }]
         }
     });
-}
+};
+createChart(dados[0], 'todos');  //graficos iniciais
 
 let popupContent;
 
@@ -103,5 +124,6 @@ map.on('popupopen', function (e) {
 
     let item = dados.find(item => item.cidade.nome === anchor);
 
-    createChart(item);
+    createChart(item, 'todos');
 });
+
