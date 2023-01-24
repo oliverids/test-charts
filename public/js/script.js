@@ -30,13 +30,36 @@ function sumUpStudents(item, ano) {
     return [veteranos, calouros];
 }
 
-function getHighestGrades(item) {
-    let notas = [
-        ...item.veteranos[0].cinco_maiores_notas,
-        ...item.veteranos[1].cinco_maiores_notas,
-        ...item.calouros[0].cinco_maiores_notas,
-        ...item.calouros[1].cinco_maiores_notas,
-    ].slice(0, 5);
+function getHighestGrades(item, turma) {
+    let notas = [];
+
+    switch (turma) {
+        case 'todos':
+            notas = [
+                ...item.veteranos[0].cinco_maiores_notas,
+                ...item.veteranos[1].cinco_maiores_notas,
+                ...item.calouros[0].cinco_maiores_notas,
+                ...item.calouros[1].cinco_maiores_notas,
+            ].slice(0, 5);
+            break;
+
+        case 'veterano':
+            notas = [
+                ...item.veteranos[0].cinco_maiores_notas,
+                ...item.veteranos[1].cinco_maiores_notas,
+            ].slice(0, 5);
+            break;
+
+        case 'calouro':
+            notas = [
+                ...item.calouros[0].cinco_maiores_notas,
+                ...item.calouros[1].cinco_maiores_notas,
+            ].slice(0, 5);
+            break;
+
+        default:
+            break;
+    }
 
     return notas;
 }
@@ -58,14 +81,14 @@ let chartTwo = new Chart(ChartNotas, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
         datasets: [{
             label: 'Maiores notas dos 5 primeiros meses',
-            data: [...getHighestGrades(dados[0])],
+            data: [...getHighestGrades(dados[0], 'todos')],
         }]
     },
 });
 
 let cidadeTitulo = document.getElementById('title');
 
-function createChart(item, ano) {
+function createChart(item, ano, turma) {
     chartOne.destroy();
     chartTwo.destroy();
 
@@ -79,17 +102,17 @@ function createChart(item, ano) {
     switch (ano) {
         case 'todos':
             ChartOneData = [sumUpStudents(item, 'todos')[0], sumUpStudents(item, 'todos')[1]];
-            ChartTwoData = [...getHighestGrades(dados[0])];
+            ChartTwoData = [...getHighestGrades(dados[0], turma)];
             break;
 
         case '2022':
             ChartOneData = [sumUpStudents(item, '2022')[0], sumUpStudents(item, '2022')[1]];
-            ChartTwoData = [...getHighestGrades(dados[0])];
+            ChartTwoData = [...getHighestGrades(dados[0], turma)];
             break;
 
         case '2021':
             ChartOneData = [sumUpStudents(item, '2021')[1], sumUpStudents(item, '2021')[1]];
-            ChartTwoData = [...getHighestGrades(dados[0])];
+            ChartTwoData = [...getHighestGrades(dados[0], turma)];
             break;
         default:
             break;
@@ -117,7 +140,7 @@ function createChart(item, ano) {
         }
     });
 };
-createChart(dados[0], 'todos');  //graficos iniciais
+createChart(dados[0], 'todos', 'todos');  //graficos iniciais
 
 let popupContent;
 
@@ -153,6 +176,11 @@ let anoInput = document.getElementById('ano'),
 
 anoInput.addEventListener('input', () => {
     let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
-    createChart(item, anoInput.value)
+    createChart(item, anoInput.value, alunoInput.value)
+})
+
+alunoInput.addEventListener('input', () => {
+    let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
+    createChart(item, anoInput.value, alunoInput.value)
 
 })
