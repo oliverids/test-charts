@@ -3,9 +3,29 @@ const dados = await fetch('./dados.json').then(r => r.json());
 const ChartAlunos = document.getElementById('ChartOne'),
     ChartNotas = document.getElementById('ChartTwo');
 
-function sumUpStudents(item) {
-    let veteranos = item.veteranos[0].qtd + item.veteranos[1].qtd,
-        calouros = item.calouros[0].qtd + item.calouros[1].qtd;
+function sumUpStudents(item, ano) {
+    let veteranos,
+        calouros;
+
+    switch (ano) {
+        case 'todos':
+            veteranos = item.veteranos[0].qtd + item.veteranos[1].qtd;
+            calouros = item.calouros[0].qtd + item.calouros[1].qtd;
+            break;
+
+        case '2022':
+            veteranos = item.veteranos[0].qtd;
+            calouros = item.calouros[0].qtd;
+            break;
+
+        case '2021':
+            veteranos = item.veteranos[0].qtd;
+            calouros = item.calouros[0].qtd;
+            break;
+
+        default:
+            break;
+    }
 
     return [veteranos, calouros];
 }
@@ -27,7 +47,7 @@ let chartOne = new Chart(ChartAlunos, {
         labels: ['Veteranos', 'Calouros'],
         datasets: [{
             label: 'Quantidade de alunos',
-            data: [sumUpStudents(dados[0])[0], sumUpStudents(dados[0])[1]],
+            data: [sumUpStudents(dados[0], 'todos')[0], sumUpStudents(dados[0], 'todos')[1]],
         }]
     },
 });
@@ -43,11 +63,13 @@ let chartTwo = new Chart(ChartNotas, {
     },
 });
 
+let cidadeTitulo = document.getElementById('title');
+
 function createChart(item, ano) {
     chartOne.destroy();
     chartTwo.destroy();
 
-    document.getElementById('title').innerText = item.cidade.nome;
+    cidadeTitulo.innerText = item.cidade.nome;
 
     let chartOneLabel = ['Veteranos', 'Calouros'],
         chartTwoLabel = ['Jan', 'Feb', 'Mar', 'Apr', 'May'];
@@ -56,22 +78,22 @@ function createChart(item, ano) {
 
     switch (ano) {
         case 'todos':
-            ChartOneData = [sumUpStudents(item)[0], sumUpStudents(item)[1]];
-            ChartTwoData = [sumUpStudents(item)[0], sumUpStudents(item)[1]];
+            ChartOneData = [sumUpStudents(item, 'todos')[0], sumUpStudents(item, 'todos')[1]];
+            ChartTwoData = [...getHighestGrades(dados[0])];
             break;
 
         case '2022':
+            ChartOneData = [sumUpStudents(item, '2022')[0], sumUpStudents(item, '2022')[1]];
+            ChartTwoData = [...getHighestGrades(dados[0])];
             break;
 
         case '2021':
+            ChartOneData = [sumUpStudents(item, '2021')[1], sumUpStudents(item, '2021')[1]];
+            ChartTwoData = [...getHighestGrades(dados[0])];
             break;
         default:
             break;
     }
-
-    if (ano == 'todos') {
-
-    } else { }
 
     chartOne = new Chart(ChartAlunos, {
         type: 'pie',
@@ -123,7 +145,14 @@ map.on('popupopen', function (e) {
             marker.lastIndexOf('</'));
 
     let item = dados.find(item => item.cidade.nome === anchor);
-
     createChart(item, 'todos');
 });
 
+let anoInput = document.getElementById('ano'),
+    alunoInput = document.getElementById('alunos');
+
+anoInput.addEventListener('input', () => {
+    let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
+    createChart(item, anoInput.value)
+
+})
