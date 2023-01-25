@@ -9,28 +9,24 @@
             {
                 "ano": 2022,
                 "qtd": 300,
-                "media_notas_turma": 8.7,
-                "cinco_maiores_notas": [9, 9.7, 9.8, 10, 9.9]
+                "cinco_maiores_notas": [6.72, 8.16, 8.25, 5.83, 4.36]
             },
             {
                 "ano": 2021,
-                "qtd": 227,
-                "media_notas_turma": 8.4,
-                "cinco_maiores_notas": [9, 9.2, 9.5, 10, 9.4]
+                "qtd": 600,
+                "cinco_maiores_notas": [6.17, 5.8, 4.5, 8.96, 9.84]
             }
         ],
         "calouros": [
             {
                 "ano": 2022,
-                "qtd": 520,
-                "media_notas_turma": 7.7,
-                "cinco_maiores_notas": [8.29, 8.86, 8.82, 8.29, 9.33]
+                "qtd": 644,
+                "cinco_maiores_notas": [7.75, 7.92, 4.92, 4.31, 5.59]
             },
             {
                 "ano": 2021,
-                "qtd": 644,
-                "media_notas_turma": 9.5,
-                "cinco_maiores_notas": [9.51, 8.14, 9.6, 9.75, 9.72]
+                "qtd": 520,
+                "cinco_maiores_notas": [7.1, 7.31, 9.7, 6.96, 4.02]
             }
         ]
     },
@@ -43,29 +39,118 @@
         "veteranos": [
             {
                 "ano": 2022,
-                "qtd": 289,
-                "media_notas_turma": 9.6,
-                "cinco_maiores_notas": [9.1, 8.54, 8.19, 8.7, 8.41]
+                "qtd": 568,
+                "cinco_maiores_notas": [4.53, 8.25, 5.86, 8.27, 5.19]
             },
             {
                 "ano": 2021,
                 "qtd": 124,
-                "media_notas_turma": 8.1,
-                "cinco_maiores_notas": [9.3, 8.21, 8.13, 9.5, 9.27]
+                "cinco_maiores_notas": [7.25, 8.38, 6.21, 8.4, 4.03]
             }
         ],
         "calouros": [
             {
                 "ano": 2022,
                 "qtd": 444,
-                "media_notas_turma": 8.65,
-                "cinco_maiores_notas": [8.63, 9.36, 8.94, 8.78, 9.71]
+                "cinco_maiores_notas": [6.59, 8.22, 8.25, 7.43, 8.36]
             },
             {
                 "ano": 2021,
-                "qtd": 501,
-                "media_notas_turma": 9.2,
-                "cinco_maiores_notas": [8.97, 9.69, 8.22, 9.78, 8.05]
+                "qtd": 700,
+                "cinco_maiores_notas": [6.25, 9.36, 6.85, 5.38, 5.16]
+            }
+        ]
+    },
+    {
+        "cidade": {
+            "nome": "Afonso Cláudio",
+            "lat": -20.046670933046926, 
+            "lon": -41.112412214680496
+        },
+        "veteranos": [
+            {
+                "ano": 2022,
+                "qtd": 933,
+                "cinco_maiores_notas": [4.46, 5.32, 5.81, 8.26, 4.94]
+            },
+            {
+                "ano": 2021,
+                "qtd": 477,
+                "cinco_maiores_notas": [4.55, 5.49, 4.04, 9.46, 9.07]
+            }
+        ],
+        "calouros": [
+            {
+                "ano": 2022,
+                "qtd": 305,
+                "cinco_maiores_notas": [7.96, 8.85, 7.81, 7.36, 9.51]
+            },
+            {
+                "ano": 2021,
+                "qtd": 866,
+                "cinco_maiores_notas": [6.37, 4.59, 8.34, 8.5, 4.87]
+            }
+        ]
+    },
+    {
+        "cidade": {
+            "nome": "Cachoeiro de Itapemirim",
+            "lat": -20.848889,
+            "lon":  -41.112778
+        },
+        "veteranos": [
+            {
+                "ano": 2022,
+                "qtd": 593,
+                "cinco_maiores_notas": [4.47, 5.48, 7.17, 7.38, 4.88]
+            },
+            {
+                "ano": 2021,
+                "qtd": 489,
+                "cinco_maiores_notas": [7.16, 8.88, 8.43, 9.69, 4.18]
+            }
+        ],
+        "calouros": [
+            {
+                "ano": 2022,
+                "qtd": 729,
+                "cinco_maiores_notas": [9.51, 9.03, 6.61, 9.53, 6.9]
+            },
+            {
+                "ano": 2021,
+                "qtd": 535,
+                "cinco_maiores_notas": [7.31, 6.9, 6.82, 9.66, 5.91]
+            }
+        ]
+    },
+    {
+        "cidade": {
+            "nome": "Linhares",
+            "lat": -19.390833,
+            "lon": -40.071944
+        },
+        "veteranos": [
+            {
+                "ano": 2022,
+                "qtd": 722,
+                "cinco_maiores_notas": [5.73, 5.35, 9.99, 6.58, 8.93]
+            },
+            {
+                "ano": 2021,
+                "qtd": 124,
+                "cinco_maiores_notas": [5.12, 6.47, 7.88, 8.33, 6.77]
+            }
+        ],
+        "calouros": [
+            {
+                "ano": 2022,
+                "qtd": 643,
+                "cinco_maiores_notas": [9.99, 6.97, 4.52, 9.9, 8.35]
+            },
+            {
+                "ano": 2021,
+                "qtd": 304,
+                "cinco_maiores_notas": [7.02, 5.63, 9.49, 9.06, 9.76]
             }
         ]
     }

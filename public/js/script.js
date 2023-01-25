@@ -161,6 +161,9 @@ for (let i = 0; i < dados.length; i++) {
     L.marker([dados[i].cidade.lat, dados[i].cidade.lon]).bindPopup(popupContent).addTo(map);
 }
 
+let anoInput = document.getElementById('ano'),
+    alunoInput = document.getElementById('alunos');
+
 map.on('popupopen', function (e) {
     let marker = e.popup._source._popup._content,
         anchor = marker.substring(
@@ -168,11 +171,9 @@ map.on('popupopen', function (e) {
             marker.lastIndexOf('</'));
 
     let item = dados.find(item => item.cidade.nome === anchor);
-    createChart(item, 'todos');
+    createChart(item, 'todos', alunoInput.value);
 });
 
-let anoInput = document.getElementById('ano'),
-    alunoInput = document.getElementById('alunos');
 
 anoInput.addEventListener('input', () => {
     let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
@@ -182,5 +183,4 @@ anoInput.addEventListener('input', () => {
 alunoInput.addEventListener('input', () => {
     let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
     createChart(item, anoInput.value, alunoInput.value)
-
 })

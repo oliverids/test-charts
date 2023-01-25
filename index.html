@@ -26,24 +26,26 @@
       <section class="data">
         <h1 id="title">Serra</h1>
 
-        <div class="filter">
-          <select name="ano" id="ano">
-            <option value="todos">Todos os Anos</option>
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-          </select>
-
-          <select name="alunos" id="alunos">
-            <option value="todos">Todos os Alunos</option>
-            <option value="veterano">Veteranos</option>
-            <option value="calouro">Calouros</option>
-          </select>
-        </div>
-
         <div class="chart">
-          <canvas id="ChartOne"></canvas>
+          <div class="charts">
+            <select name="ano" id="ano">
+              <option value="todos">Todos os Anos</option>
+              <option value="2022">2022</option>
+              <option value="2021">2021</option>
+            </select>
 
-          <canvas id="ChartTwo"></canvas>
+            <canvas id="ChartOne"></canvas>
+          </div>
+
+          <div class="charts">
+            <select name="alunos" id="alunos">
+              <option value="todos">Todos os Alunos</option>
+              <option value="veterano">Veteranos</option>
+              <option value="calouro">Calouros</option>
+            </select>
+            <canvas id="ChartTwo"></canvas>
+          </div>
+
         </div>
       </section>
 

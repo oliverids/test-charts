@@ -13,7 +13,7 @@ $inter: 'Inter', sans-serif;
 body {
     font-size: 16px;
     font-family: $inter;
-    background: #eee;
+    background: rgb(244, 244, 244);
 
     // @media only screen and (min-width: 1366px) {
     //     max-height: 100vh;
@@ -30,6 +30,6 @@ button {
 
 .container {
     display: flex;
-    max-width: 75rem;
+    width: fit-content;
     margin: 0 auto;
 }
