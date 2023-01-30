@@ -30,6 +30,7 @@ button {
 
 .container {
     display: flex;
-    width: fit-content;
+    width: 90%;
+    max-width: 800px;
     margin: 0 auto;
 }

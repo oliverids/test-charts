@@ -11,7 +11,7 @@ main {
         justify-content: space-between;
 
         section {
-            width: 100%;
+            // width: 100%;
 
             &.data {
                 text-align: center;
@@ -35,12 +35,21 @@ main {
                     }
                 }
             }
+
+            &.secmap {
+                width: 45%;
+                max-width: 400px;
+
+                #map {
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                }
+            }
         }
 
-        #map {
-            width: 400px;
-            height: 100%;
-            margin: 0;
-        }
+
+
+
     }
 }

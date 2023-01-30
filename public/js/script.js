@@ -155,10 +155,12 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 12,
 }).addTo(map);
 
+let allMarkers = [];
 for (let i = 0; i < dados.length; i++) {
     popupContent = /*html*/`<p>${dados[i].cidade.nome}</p>`;
 
-    L.marker([dados[i].cidade.lat, dados[i].cidade.lon]).bindPopup(popupContent).addTo(map);
+    let marker = L.marker([dados[i].cidade.lat, dados[i].cidade.lon]).bindPopup(popupContent).addTo(map);
+    allMarkers.push(marker)
 }
 
 let anoInput = document.getElementById('ano'),
@@ -184,3 +186,36 @@ alunoInput.addEventListener('input', () => {
     let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
     createChart(item, anoInput.value, alunoInput.value)
 })
+
+// function getVisibleMarkers(map) {
+//     let markerList = [];
+//     map.eachLayer(function (layer) {
+//         if ((layer instanceof L.Marker) && (map.getBounds().contains(layer.getLatLng()))) {
+//             markerList.push(layer);
+//         };
+//     });
+//     return markerList;
+// }
+
+// getVisibleMarkers(map).forEach(element => {
+//     console.log(element)
+// });
+
+map.on('moveend', function (e) {
+    let bounds = map.getBounds();
+
+    // getVisibleMarkers(map)
+
+    allMarkers.forEach(each => {
+        let isInBounds = bounds.contains(each._latlng)
+
+        if (isInBounds) {
+            let itemVisivel = dados.find(item => 
+                item.cidade.lat === each._latlng.lat &&
+                item.cidade.lon === each._latlng.lng);
+
+            console.log(itemVisivel.cidade.nome)
+        }
+    })
+
+});
