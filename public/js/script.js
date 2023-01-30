@@ -201,8 +201,11 @@ alunoInput.addEventListener('input', () => {
 //     console.log(element)
 // });
 
+const visibleList = document.getElementById('visibleList');
+
 map.on('moveend', function (e) {
     let bounds = map.getBounds();
+    visibleList.innerHTML = '';
 
     // getVisibleMarkers(map)
 
@@ -210,11 +213,16 @@ map.on('moveend', function (e) {
         let isInBounds = bounds.contains(each._latlng)
 
         if (isInBounds) {
-            let itemVisivel = dados.find(item => 
+            let itemVisivel = dados.find(item =>
                 item.cidade.lat === each._latlng.lat &&
                 item.cidade.lon === each._latlng.lng);
 
             console.log(itemVisivel.cidade.nome)
+
+            let visibleCity = document.createElement('li');
+            visibleCity.innerHTML = /*html*/`<li>${itemVisivel.cidade.nome}</li>`;
+
+            visibleList.appendChild(visibleCity)
         }
     })
 
