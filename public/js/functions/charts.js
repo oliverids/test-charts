@@ -2,7 +2,9 @@ const ChartAlunos = document.getElementById('ChartOne'),
     ChartNotas = document.getElementById('ChartTwo');
 
 const dados = await fetch('./dados.json').then(r => r.json()),
-    chartSection = document.querySelector('.chart');
+    chartSection = document.querySelector('.chart'),
+    backButton = document.getElementById('back');
+
 
 function sumUpStudents(item, ano) {
     let veteranos,
@@ -141,6 +143,7 @@ export function createChart(item, ano, turma) {
         }
     });
     visibleList.style.display = 'none';
+    backButton.style.display = 'block';
 
     chartSection.style.display = 'flex';
 
