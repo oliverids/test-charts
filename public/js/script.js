@@ -18,7 +18,10 @@ function pullMapCities() {
                 item.cidade.lon === each._latlng.lng);
 
             let visibleCity = document.createElement('li');
-            visibleCity.innerHTML = /*html*/`<li><a>${itemVisivel.cidade.nome}</a></li>`;
+            visibleCity.innerHTML = /*html*/`
+                <div></div>
+                <a>${itemVisivel.cidade.nome}</a>
+            `;
 
             visibleList.appendChild(visibleCity)
         }
@@ -75,18 +78,20 @@ alunoInput.addEventListener('input', () => {
 
 
 let chartSection = document.querySelector('.chart');
+const backButton = document.getElementById('back');
 
 function clickCityLinks() {
     let allLinks = visibleList.querySelectorAll('li a');
     allLinks.forEach(e => {
         e.addEventListener('click', (evt) => {
             visibleList.style.display = 'none';
+            backButton.style.display = 'block';
 
             let cidadeClicada = dados.find(item => item.cidade.nome === evt.currentTarget.innerText);
 
             Charts.createChart(cidadeClicada, 'todos', 'todos');
 
-            chartSection.style.display = 'block';
+            chartSection.style.display = 'flex';
         })
     })
 }
@@ -97,11 +102,9 @@ map.on('moveend', function (e) {
     clickCityLinks()
 });
 
-
-
-const backButton = document.getElementById('back');
 backButton.addEventListener('click', () => {
-    visibleList.style.display = 'block';
+    visibleList.style.display = 'flex';
     chartSection.style.display = 'none';
+    backButton.style.display = 'none';
 
 })

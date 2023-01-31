@@ -143,6 +143,6 @@ export function createChart(item, ano, turma) {
     });
     visibleList.style.display = 'none';
 
-    chartSection.style.display = 'block';
+    chartSection.style.display = 'flex';
 
 };
