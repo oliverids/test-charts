@@ -52,7 +52,7 @@ let popupContent;
 const map = L.map('map', {
     center: [-19.8, -40.6],
     zoom: 9,
-    minZoom: 9,
+    minZoom: 7,
     maxZoom: 10,
 });
 
