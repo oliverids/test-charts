@@ -1,9 +1,8 @@
 const ChartAlunos = document.getElementById('ChartOne'),
-ChartNotas = document.getElementById('ChartTwo');
+    ChartNotas = document.getElementById('ChartTwo');
 
-const dados = await fetch('./dados.json').then(r => r.json());
-let chartSection = document.querySelector('.chart');
-
+const dados = await fetch('./dados.json').then(r => r.json()),
+    chartSection = document.querySelector('.chart');
 
 function sumUpStudents(item, ano) {
     let veteranos,
@@ -88,7 +87,7 @@ let chartTwo = new Chart(ChartNotas, {
     },
 });
 
-let cidadeTitulo = document.getElementById('title');
+export let cidadeTitulo = document.getElementById('title');
 
 export function createChart(item, ano, turma) {
     chartOne.destroy();

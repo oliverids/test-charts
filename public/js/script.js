@@ -67,12 +67,12 @@ map.on('popupopen', function (e) {
 
 
 anoInput.addEventListener('input', () => {
-    let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
+    let item = dados.find(item => item.cidade.nome === Charts.cidadeTitulo.innerText);
     Charts.createChart(item, anoInput.value, alunoInput.value)
 })
 
 alunoInput.addEventListener('input', () => {
-    let item = dados.find(item => item.cidade.nome === cidadeTitulo.innerText);
+    let item = dados.find(item => item.cidade.nome === Charts.cidadeTitulo.innerText);
     Charts.createChart(item, anoInput.value, alunoInput.value)
 })
 
