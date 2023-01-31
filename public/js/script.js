@@ -9,23 +9,41 @@ function pullMapCities() {
     let bounds = map.getBounds();
     visibleList.innerHTML = '';
 
+    let visibleMarkers = [];
+
+
     allMarkers.forEach(each => {
         let isInBounds = bounds.contains(each._latlng)
 
         if (isInBounds) {
+            let visibleCity = document.createElement('li');
+            visibleMarkers.push(each);
+
             let itemVisivel = dados.find(item =>
                 item.cidade.lat === each._latlng.lat &&
                 item.cidade.lon === each._latlng.lng);
 
-            let visibleCity = document.createElement('li');
             visibleCity.innerHTML = /*html*/`
                 <div></div>
                 <a>${itemVisivel.cidade.nome}</a>
             `;
 
-            visibleList.appendChild(visibleCity)
+            visibleList.appendChild(visibleCity);
         }
     })
+
+    if (!visibleMarkers.length) {
+        for (let i = 0; i < dados.length; i++) {
+            let visibleCity = document.createElement('li');
+
+            visibleCity.innerHTML = /*html*/`
+                <div></div>
+                <a>${dados[i].cidade.nome}</a>
+            `;
+
+            visibleList.appendChild(visibleCity);
+        }
+    }
 }
 
 //MAPA
@@ -33,8 +51,8 @@ let popupContent;
 
 const map = L.map('map', {
     center: [-19.8, -40.6],
-    zoom: 7,
-    minZoom: 8,
+    zoom: 9,
+    minZoom: 9,
     maxZoom: 10,
 });
 
@@ -64,7 +82,6 @@ map.on('popupopen', function (e) {
     let item = dados.find(item => item.cidade.nome === anchor);
     Charts.createChart(item, 'todos', alunoInput.value);
 });
-
 
 anoInput.addEventListener('input', () => {
     let item = dados.find(item => item.cidade.nome === Charts.cidadeTitulo.innerText);
