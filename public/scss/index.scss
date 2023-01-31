@@ -2,7 +2,6 @@
 
 main {
     margin-top: 1rem;
-    // margin: auto;
 
     .container {
         background: #fff;
@@ -10,60 +9,123 @@ main {
         border-radius: 1rem;
         justify-content: space-between;
 
-        section {
-            // width: 100%;
+        .data {
+            text-align: center;
+            margin-right: 2.5rem;
+            // width: fit-content;
+            width: 100%;
+            // height: 100%;
+            max-height: 400px;
+            margin-right: 3rem;
 
-            &.data {
-                text-align: center;
-                margin-right: 2.5rem;
-                width: fit-content;
-
-                h1 {
-                    display: none;
-                }
-
-                .chart {
-                    margin-top: 1rem;
-                    display: none;
-
-                    .charts {
-                        max-width: 300px;
-
-                        select {
-                            margin-bottom: 1rem;
-                        }
-                    }
-
-                    canvas#ChartOne {
-                        max-height: 200px;
-                        margin-bottom: 2rem;
-                    }
-                }
-
-                h2 {
-                    margin-bottom: 2rem;
-                }
-
-                ul {
-                    padding-left: 1.5rem;
-
-                    li {
-                        width: fit-content;
-                    }
-                }
+            h1 {
+                margin-bottom: 1.5rem;
+                text-align: left;
             }
 
-            &.secmap {
-                width: 45%;
-                max-width: 400px;
+            .secinfo {
+                width: 100%;
+                max-height: 344px;
+                display: flex;
+                flex-direction: column;
+                overflow-y: auto;
 
-                #map {
-                    width: 100%;
-                    // height: 100%;
-                    height: 400px;
-                    margin: 0;
+                nav {
+                    background-color: red;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-end;
+                    height: fit-content;
+
+                    #back {
+                        width: fit-content;
+                    }
+
+                    #visibleList {
+                        li {
+                            width: fit-content;
+
+                            &:not(last-child) {
+                                margin-bottom: 1rem;
+                            }
+                        }
+                    }
+                }
+
+                article {
+                    background: blue;
+
+                    .chart {
+                        margin-top: 1rem;
+                        display: none;
+
+                        .charts {
+                            max-width: 300px;
+
+                            select {
+                                margin-bottom: 1rem;
+                            }
+                        }
+
+                        canvas#ChartOne {
+                            max-height: 200px;
+                            margin-bottom: 2rem;
+                        }
+                    }
                 }
             }
         }
+
+        .secmap {
+            width: 45%;
+            max-width: 400px;
+
+            #map {
+                min-width: 280px;
+                height: 400px;
+                margin: 0;
+            }
+        }
+
+
+
+        // section {
+        //     // width: 100%;
+
+        //     &.data {
+        //         text-align: center;
+        //         margin-right: 2.5rem;
+        //         width: fit-content;
+
+
+        //         .chart {
+        //             margin-top: 1rem;
+        //             display: none;
+
+        //             .charts {
+        //                 max-width: 300px;
+
+        //                 select {
+        //                     margin-bottom: 1rem;
+        //                 }
+        //             }
+
+        //             canvas#ChartOne {
+        //                 max-height: 200px;
+        //                 margin-bottom: 2rem;
+        //             }
+        //         }
+
+
+        //         ul {
+        //             padding-left: 1.5rem;
+
+        //             li {
+        //                 width: fit-content;
+        //             }
+        //         }
+        //     }
+
+        // }
     }
 }

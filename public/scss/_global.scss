@@ -10,6 +10,18 @@ $inter: 'Inter', sans-serif;
     font-family: $narrow;
 }
 
+ul {
+    list-style: none;
+}
+
+a, button {
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
 body {
     font-size: 16px;
     font-family: $inter;

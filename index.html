@@ -24,33 +24,41 @@
   <main>
     <div class="container">
       <section class="data">
-        <h1 id="title">Serra</h1>
+        <h1>Cidades registradas no sistema</h1>
 
-        <div class="chart">
-          <div class="charts">
-            <select name="ano" id="ano">
-              <option value="todos">Todos os Anos</option>
-              <option value="2022">2022</option>
-              <option value="2021">2021</option>
-            </select>
+        <section class="secinfo">
+          <nav>
+            <button id="back">&larr; Voltar</button>
+            <ul id="visibleList">
+            </ul>
+          </nav>
 
-            <canvas id="ChartOne"></canvas>
-          </div>
+          <article>
+            <h2 id="title">Serra</h2>
 
-          <div class="charts">
-            <select name="alunos" id="alunos">
-              <option value="todos">Todos os Alunos</option>
-              <option value="veterano">Veteranos</option>
-              <option value="calouro">Calouros</option>
-            </select>
-            <canvas id="ChartTwo"></canvas>
-          </div>
-        </div>
+            <div class="chart">
+              <div class="charts">
+                <select name="ano" id="ano">
+                  <option value="todos">Todos os Anos</option>
+                  <option value="2022">2022</option>
+                  <option value="2021">2021</option>
+                </select>
 
-        <h2>Cidades visíveis no mapa</h2>
-        <ul id="visibleList">
+                <canvas id="ChartOne"></canvas>
+              </div>
 
-        </ul>
+              <div class="charts">
+                <select name="alunos" id="alunos">
+                  <option value="todos">Todos os Alunos</option>
+                  <option value="veterano">Veteranos</option>
+                  <option value="calouro">Calouros</option>
+                </select>
+                <canvas id="ChartTwo"></canvas>
+              </div>
+            </div>
+          </article>
+        </section>
+
       </section>
 
 
